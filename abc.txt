@@ -1,2 +1,0 @@
-some text v:1
-some text v:2
