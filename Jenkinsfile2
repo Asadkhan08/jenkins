@@ -6,6 +6,13 @@ pipeline{
         secret=credentials('secret_text')
     }
         stages{
+            stage("git checkout")
+            {
+                steps{
+                     checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Asadkhan08/jenkins.git']])
+
+                }
+            }
             stage("Build") {
                 steps{
                     sh ''' 
