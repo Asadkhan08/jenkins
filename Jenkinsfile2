@@ -25,13 +25,7 @@ pipeline{
                         '''
                     }
                 }
-            
-             }
-            stage{
-                steps{
-                   ' sh "Failure"; exit 1'
-                }
-            }
+                 }
         }
         post {
                 always {
