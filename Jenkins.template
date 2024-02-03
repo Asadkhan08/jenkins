@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                checkout poll: false, scm: scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Asadkhan08/stayus_test_project.git']])
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+pipeline{
+    agent any 
+    environment{
+        NAME="ASAD"
+        MSG= " Have a Nice Day... Stay Blessed !"
+        secret=credentials('secret_text')
+    }
+        stages{
+            // stage("Build") {
+            //     steps{
+            //         sh ''' 
+            //         echo " hello from $NAME and the message is $MSG"
+            //         echo "my secret text is $secret"
+            //         '''
+            //     }
+            // }
+            
+            // stage ("Test"){
+            //     steps{
+            //         timeout(time:3, unit:"SECONDS"){
+                      
+            //             sh ''' 
+            //             echo "if this stage is aborted then pipeline works smoothly"
+            //             sleep 3 
+            //             '''
+            //         }
+            //     }
+            
+            // }
+            stage{
+                steps{
+                   ' sh "Failure"; exit 1'
+                }
+            }
+        }
+        post {
+                always {
+                    echo "i am always present"
+                }
+                success {
+                    echo "Executed only when successful"
+                }
+                failure{
+                    echo "Executed only when Failure"
+                    
+                }
+                unstable {
+                    echo "Executed only when unstable "
+                    
+                }
+                }
+            
+}
