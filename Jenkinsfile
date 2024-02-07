@@ -8,14 +8,7 @@ pipeline{
                 '''
                 }
             }
-            stage("test"){
-                steps {
-                    timeout(time:3, unit:"SECONDS")
-                    {
-                        sh 'sleep 5'
-                    }
-                }
-            }
-        }    }
-    
+            
+        }    
+    }
 }
